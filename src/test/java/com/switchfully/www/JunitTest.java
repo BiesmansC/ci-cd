@@ -8,4 +8,9 @@ class JunitTest {
     void successfulTest() {
         Assertions.assertTrue(true);
     }
+
+    @Test
+    void unsuccessfulTest() {
+        Assertions.assertTrue(false);
+    }
 }
