@@ -20,5 +20,5 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
       # split up compilation and testing
-      - name: Compile and/or test our code
-        run: 'mvn test'
+      - name: Build and test with Maven
+        run: mvn clean install
