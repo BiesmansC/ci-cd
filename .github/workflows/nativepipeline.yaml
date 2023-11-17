@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest # windows instead of ubuntu so that the downloaded file will work on our computer
     steps:
       # check out our code to the runner
       - name: Checkout code
@@ -21,10 +21,10 @@ jobs:
           java-version: '17'
       # Create a step that uses the native-image command
       - name: Use native-image command
-        run: mvn clean install -Pnative
+        run: mvn install -Pnative # mvn clean install -Pnative is better but without it's faster
       # upload the artifact created by the workflow that will make it available to download from Github
       - name: Upload binary
         uses: actions/upload-artifact@v2
         with:
           name: give artifact a name (this is the artifact id from the pom)
-          path: hello*
+          path: target/hello-1.0-SNAPSHOT-runner.exe
